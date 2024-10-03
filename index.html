@@ -62,25 +62,34 @@
 </head>
 <body class="min-h-screen bg-white">
     <!-- Navbar -->
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out bg-transparent">
-    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-        <a href="/">
-            <img src="324075248_1212694942995222_2428504901408791655_n-removebg-preview.png" alt="Barras Móviles" width="150" height="50">
-        </a>
-        <div class="hidden md:flex space-x-6">
-            <a href="#inicio" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Inicio</a>
-            <a href="#servicios" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Servicios</a>
-            <a href="#eventos" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Eventos</a>
-            <a href="#tienda" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Tienda</a>
-            <a href="#contacto" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Contacto</a>
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out bg-transparent">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="/">
+                <img src="324075248_1212694942995222_2428504901408791655_n-removebg-preview.png" alt="Barras Móviles" width="150" height="50">
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#inicio" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Inicio</a>
+                <a href="#servicios" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Servicios</a>
+                <a href="#eventos" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Eventos</a>
+                <a href="#tienda" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Tienda</a>
+                <a href="#contacto" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Contacto</a>
+            </div>
+            <button id="menuToggle" class="md:hidden text-primary-600 border-primary-600 p-2 rounded">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
         </div>
-        <button id="menuToggle" class="md:hidden text-primary-600 border-primary-600 p-2 rounded">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-        </button>
-    </div>
-</nav>
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-md">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#inicio" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Inicio</a>
+                <a href="#servicios" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Servicios</a>
+                <a href="#eventos" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Eventos</a>
+                <a href="#tienda" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Tienda</a>
+                <a href="#contacto" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Contacto</a>
+            </div>
+        </div>
+    </nav>
 
 <!-- Hero Section with Slider -->
 <section id="inicio" class="hero-slider relative h-screen flex items-center justify-center overflow-hidden">
