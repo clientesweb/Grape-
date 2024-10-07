@@ -34,16 +34,16 @@
                 extend: {
                     colors: {
                         grape: {
-                            50: '#F9F5FF',
-                            100: '#F3E8FF',
-                            200: '#E9D5FF',
-                            300: '#D8B4FE',
-                            400: '#C084FC',
-                            500: '#A855F7',
-                            600: '#9333EA',
-                            700: '#7E22CE',
-                            800: '#6B21A8',
-                            900: '#581C87',
+                            50: '#F8F5FC',
+                            100: '#F1EAF9',
+                            200: '#E3D5F3',
+                            300: '#D5C0ED',
+                            400: '#C7ABE7',
+                            500: '#B996E1',
+                            600: '#AB81DB',
+                            700: '#9D6CD5',
+                            800: '#8F57CF',
+                            900: '#8142C9',
                         },
                     },
                     fontFamily: {
@@ -56,7 +56,6 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #F9F5FF;
         }
         .hero-slider {
             position: relative;
@@ -152,8 +151,10 @@
             background-color: #128C7E;
         }
     </style>
+    <link rel="preload" href="https://clientesweb.github.io/Grape-/img/logo.png" as="image">
+    <link rel="preload" href="459542546_797869789090698_9205522020434293430_n.jpg" as="image">
 </head>
-<body class="min-h-screen bg-grape-50 font-sans text-grape-900">
+<body class="min-h-screen bg-grape-50">
     <!-- Preloader -->
     <div id="preloader" class="fixed inset-0 z-50 flex items-center justify-center bg-grape-50">
         <div class="w-16 h-16 border-4 border-grape-600 border-t-transparent rounded-full animate-spin"></div>
@@ -162,18 +163,17 @@
     <!-- Navbar -->
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-in-out bg-grape-50 shadow-md">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="/" aria-label="Inicio" class="flex items-center">
-                <img src="https://clientesweb.github.io/Grape-/img/logo.png" alt="Grape! Logo" class="h-12 w-auto mr-2">
-                <span class="text-2xl font-bold text-grape-700">Grape!</span>
+            <a href="/" aria-label="Inicio">
+                <img src="https://clientesweb.github.io/Grape-/img/logo.png" alt="Grape! Logo" class="h-12 w-auto">
             </a>
             <div class="hidden md:flex space-x-6">
-                <a href="#inicio" class="text-grape-700 hover:text-grape-500 transition-colors duration-300">Inicio</a>
-                <a href="#servicios" class="text-grape-700 hover:text-grape-500 transition-colors duration-300">Servicios</a>
-                <a href="#eventos" class="text-grape-700 hover:text-grape-500 transition-colors duration-300">Eventos</a>
-                <a href="#tienda" class="text-grape-700 hover:text-grape-500 transition-colors duration-300">Tienda</a>
-                <a href="#contacto" class="text-grape-700 hover:text-grape-500 transition-colors duration-300">Contacto</a>
+                <a href="#inicio" class="text-grape-800 hover:text-grape-600 transition-colors duration-300">Inicio</a>
+                <a href="#servicios" class="text-grape-800 hover:text-grape-600 transition-colors duration-300">Servicios</a>
+                <a href="#eventos" class="text-grape-800 hover:text-grape-600 transition-colors duration-300">Eventos</a>
+                <a href="#tienda" class="text-grape-800 hover:text-grape-600 transition-colors duration-300">Tienda</a>
+                <a href="#contacto" class="text-grape-800 hover:text-grape-600 transition-colors duration-300">Contacto</a>
             </div>
-            <button id="menuToggle" class="md:hidden text-grape-700 border-grape-700 p-2 rounded" aria-label="Abrir menú">
+            <button id="menuToggle" class="md:hidden text-grape-800 border-grape-800 p-2 rounded" aria-label="Abrir menú">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
@@ -181,11 +181,11 @@
         </div>
         <div id="mobileMenu" class="hidden md:hidden bg-grape-50 shadow-md">
             <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
-                <a href="#inicio" class="text-grape-700 hover:text-grape-500 transition-colors duration-300">Inicio</a>
-                <a href="#servicios" class="text-grape-700 hover:text-grape-500 transition-colors duration-300">Servicios</a>
-                <a href="#eventos" class="text-grape-700 hover:text-grape-500 transition-colors duration-300">Eventos</a>
-                <a href="#tienda" class="text-grape-700 hover:text-grape-500 transition-colors duration-300">Tienda</a>
-                <a href="#contacto" class="text-grape-700 hover:text-grape-500 transition-colors duration-300">Contacto</a>
+                <a href="#inicio" class="text-grape-800 hover:text-grape-600 transition-colors duration-300">Inicio</a>
+                <a href="#servicios" class="text-grape-800 hover:text-grape-600 transition-colors duration-300">Servicios</a>
+                <a href="#eventos" class="text-grape-800 hover:text-grape-600 transition-colors duration-300">Eventos</a>
+                <a href="#tienda" class="text-grape-800 hover:text-grape-600 transition-colors duration-300">Tienda</a>
+                <a href="#contacto" class="text-grape-800 hover:text-grape-600 transition-colors duration-300">Contacto</a>
             </div>
         </div>
     </nav>
@@ -193,33 +193,33 @@
     <!-- Hero Section with Slider -->
     <section id="inicio" class="hero-slider relative h-screen flex items-center justify-center overflow-hidden">
         <div class="hero-slide active flex items-center justify-center w-full h-full">
-            <img src="459542546_797869789090698_9205522020434293430_n.jpg" alt="Coctelería de Grape!" class="absolute inset-0 w-full h-full object-cover md:object-cover object-center" loading="lazy">
+            <img src="459542546_797869789090698_9205522020434293430_n.jpg" alt="Experiencias Únicas en Coctelería" class="absolute inset-0 w-full h-full object-cover md:object-cover object-center" loading="lazy">
             <div class="absolute inset-0 bg-grape-900 bg-opacity-50"></div>
             <div class="relative z-10 text-center text-white px-4">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4">Experiencias Únicas en Coctelería</h1>
-                <p class="text-xl md:text-2xl mb-8">Descubre el sabor de Grape!</p>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Experiencias Únicas</h1>
+                <p class="text-xl md:text-2xl mb-8">Cócteles que Deleitan</p>
             </div>
         </div>
         <div class="hero-slide flex items-center justify-center w-full h-full">
-            <img src="458504902_1670810757097533_8446275546502552705_n.jpg" alt="Eventos Grape!" class="absolute inset-0 w-full h-full object-cover md:object-cover object-center" loading="lazy">
+            <img src="458504902_1670810757097533_8446275546502552705_n.jpg" alt="Eventos Memorables con Grape!" class="absolute inset-0 w-full h-full object-cover md:object-cover object-center" loading="lazy">
             <div class="absolute inset-0 bg-grape-900 bg-opacity-50"></div>
             <div class="relative z-10 text-center text-white px-4">
                 <h1 class="text-4xl md:text-6xl font-bold mb-4">Eventos Memorables</h1>
-                <p class="text-xl md:text-2xl mb-8">Servicio Premium de Grape!</p>
+                <p class="text-xl md:text-2xl mb-8">Servicio de Primera</p>
             </div>
         </div>
         <div class="hero-slide flex items-center justify-center w-full h-full">
-            <img src="459240762_370815002767295_1458924195467339894_n.jpg" alt="Bartenders Grape!" class="absolute inset-0 w-full h-full object-cover md:object-cover object-center" loading="lazy">
+            <img src="459240762_370815002767295_1458924195467339894_n.jpg" alt="Bartenders Expertos de Grape!" class="absolute inset-0 w-full h-full object-cover md:object-cover object-center" loading="lazy">
             <div class="absolute inset-0 bg-grape-900 bg-opacity-50"></div>
             <div class="relative z-10 text-center text-white px-4">
                 <h1 class="text-4xl md:text-6xl font-bold mb-4">Bartenders Expertos</h1>
-                <p class="text-xl md:text-2xl mb-8">La Pasión de Grape! por la Mixología</p>
+                <p class="text-xl md:text-2xl mb-8">Pasión por la Mixología</p>
             </div>
         </div>
         
         <!-- Reserva Ahora Button -->
-        <button id="reserveButton" class="bg-grape-600 hover:bg-grape-700 text-white font-bold py-3 px-8 rounded-full absolute bottom-10 left-1/2 transform -translate-x-1/2 transition-all duration-300 shadow-lg">
-            Reserva tu Experiencia Grape!
+        <button id="reserveButton" class="bg-grape-600 hover:bg-grape-700 text-white font-bold py-3 px-8 rounded-full absolute bottom-10 left-1/2 transform -translate-x-1/2 transition-all duration-300">
+            Reserva Ahora
         </button>
 
         <!-- Scroll Down Icon -->
@@ -230,46 +230,46 @@
         </div>
     </section>
    
-    <!-- Servicios  -->
+    <!-- Servicios -->
     <section id="servicios" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-grape-800">Servicios Exclusivos de Grape!</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-grape-800">Nuestros Servicios</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-grape-50 p-6 rounded-lg shadow-md overflow-hidden transform transition duration-500 hover:scale-105">
+                <div class="bg-grape-50 p-6 rounded-lg shadow-md overflow-hidden">
                     <div class="relative h-64 mb-4 rounded-lg overflow-hidden">
-                        <img src="https://clientesweb.github.io/Grape-/barramoviles.jpg" alt="Barras Móviles Grape!" class="w-full h-full object-cover" loading="lazy">
+                        <img src="https://clientesweb.github.io/Grape-/barramoviles.jpg"   alt="Barras Móviles Grape!" class="w-full h-full object-cover" loading="lazy">
                     </div>
-                    <div class="mb-4 text-grape-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-grape-600 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2 text-grape-800 text-center">Barras Móviles Grape!</h3>
-                    <p class="text-grape-600 text-center">Llevamos la magia de Grape! a donde tú estés con nuestras barras móviles totalmente equipadas.</p>
+                    <h3 class="text-xl font-semibold mb-2 text-grape-800 text-center">Barras Móviles</h3>
+                    <p class="text-grape-600 text-center">Llevamos la fiesta a donde tú estés con nuestras barras móviles totalmente equipadas.</p>
                 </div>
-                <div class="bg-grape-50 p-6 rounded-lg shadow-md overflow-hidden transform transition duration-500 hover:scale-105">
+                <div class="bg-grape-50 p-6 rounded-lg shadow-md overflow-hidden">
                     <div class="relative h-64 mb-4 rounded-lg overflow-hidden">
                         <img src="https://clientesweb.github.io/Grape-/eventos.jpg" alt="Bartenders Profesionales Grape!" class="w-full h-full object-cover" loading="lazy">
                     </div>
-                    <div class="mb-4 text-grape-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-grape-600 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
                         </svg>
                     </div>
                     <h3 class="text-xl font-semibold mb-2 text-grape-800 text-center">Bartenders Profesionales</h3>
-                    <p class="text-grape-600 text-center">Nuestros expertos bartenders Grape! crearán cócteles únicos que deleitarán a tus invitados.</p>
+                    <p class="text-grape-600 text-center">Nuestros expertos bartenders crearán cócteles únicos para tu evento.</p>
                 </div>
-                <div class="bg-grape-50 p-6 rounded-lg shadow-md overflow-hidden transform transition duration-500 hover:scale-105">
+                <div class="bg-grape-50 p-6 rounded-lg shadow-md overflow-hidden">
                     <div class="relative h-64 mb-4 rounded-lg overflow-hidden">
                         <img src="https://clientesweb.github.io/Grape-/bartenders.jpg" alt="Eventos Personalizados Grape!" class="w-full h-full object-cover" loading="lazy">
                     </div>
-                    <div class="mb-4 text-grape-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-grape-600 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                     </div>
                     <h3 class="text-xl font-semibold mb-2 text-grape-800 text-center">Eventos Personalizados</h3>
-                    <p class="text-grape-600 text-center">Diseñamos la experiencia Grape! perfecta para cumpleaños, bodas, despedidas y más.</p>
+                    <p class="text-grape-600 text-center">Diseñamos la experiencia perfecta para cumpleaños, bodas, despedidas y más.</p>
                 </div>
             </div>
         </div>
@@ -278,50 +278,50 @@
     <!-- Eventos -->
     <section id="eventos" class="py-20 bg-grape-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-grape-800">Eventos Grape!</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-grape-800">Nuestros Eventos</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-500 hover:scale-105">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
                     <div class="relative h-48">
                         <img src="/bodas.jpg" alt="Bodas Elegantes con Grape!" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-grape-800">Bodas Elegantes Grape!</h3>
-                        <p class="text-grape-600 mb-4">Celebra el día más especial de tu vida con nuestros servicios de coctelería premium Grape!. Ofrecemos una selección exquisita de cócteles personalizados que complementarán perfectamente la elegancia de tu boda.</p>
+                        <h3 class="text-xl font-semibold mb-2 text-grape-800">Bodas Elegantes</h3>
+                        <p class="text-grape-600 mb-4">Celebra el día más especial de tu vida con nuestros servicios de coctelería premium. Ofrecemos una selección exquisita de cócteles personalizados que complementarán perfectamente la elegancia de tu boda.</p>
                         <ul class="list-disc list-inside text-grape-600">
-                            <li>Barra móvil personalizada Grape!</li>
-                            <li>Cócteles signature Grape!</li>
-                            <li>Servicio de champagne premium</li>
-                            <li>Bartenders profesionales Grape!</li>
+                            <li>Barra móvil personalizada</li>
+                            <li>Cócteles signature</li>
+                            <li>Servicio de champagne</li>
+                            <li>Bartenders profesionales</li>
                         </ul>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-500 hover:scale-105">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
                     <div class="relative h-48">
                         <img src="/corporativo.jpg" alt="Fiestas Corporativas con Grape!" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-grape-800">Fiestas Corporativas Grape!</h3>
-                        <p class="text-grape-600 mb-4">Impresiona a tus clientes y empleados con nuestras barras profesionales Grape!. Creamos una experiencia única que elevará cualquier evento corporativo, desde lanzamientos de productos hasta galas anuales.</p>
+                        <h3 class="text-xl font-semibold mb-2 text-grape-800">Fiestas Corporativas</h3>
+                        <p class="text-grape-600 mb-4">Impresiona a tus clientes y empleados con nuestras barras profesionales. Creamos una experiencia única que elevará cualquier evento corporativo, desde lanzamientos de productos hasta galas anuales.</p>
                         <ul class="list-disc list-inside text-grape-600">
-                            <li>Menú de cócteles temáticos Grape!</li>
-                            <li>Opciones sin alcohol exclusivas</li>
-                            <li>Servicio de canapés gourmet</li>
-                            <li>Decoración personalizada Grape!</li>
+                            <li>Menú de cócteles temáticos</li>
+                            <li>Opciones sin alcohol</li>
+                            <li>Servicio de canapés</li>
+                            <li>Decoración personalizada</li>
                         </ul>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-500 hover:scale-105">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
                     <div class="relative h-48">
                         <img src="/cumpleanos.jpg" alt="Cumpleaños VIP con Grape!" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-grape-800">Cumpleaños VIP Grape!</h3>
-                        <p class="text-grape-600 mb-4">Haz que tu cumpleaños sea inolvidable con nuestra barra móvil y cócteles de autor Grape!. Creamos una experiencia VIP que tus invitados recordarán por mucho tiempo.</p>
+                        <h3 class="text-xl font-semibold mb-2 text-grape-800">Cumpleaños VIP</h3>
+                        <p class="text-grape-600 mb-4">Haz que tu cumpleaños sea inolvidable con nuestra barra móvil y cócteles de autor. Creamos una experiencia VIP que tus invitados recordarán por mucho tiempo.</p>
                         <ul class="list-disc list-inside text-grape-600">
-                            <li>Cócteles de autor Grape!</li>
+                            <li>Cócteles de autor</li>
                             <li>Barra de shots especiales</li>
                             <li>Show de flair bartending</li>
-                            <li>Snacks gourmet Grape!</li>
+                            <li>Snacks gourmet</li>
                         </ul>
                     </div>
                 </div>
@@ -332,13 +332,13 @@
     <!-- Video de YouTube y Reels de Instagram -->
     <section id="video" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-grape-800">Grape! en Acción</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-grape-800">Nuestro Trabajo en Acción</h2>
             <div class="max-w-3xl mx-auto mb-12">
                 <div class="relative overflow-hidden rounded-lg shadow-md" style="padding-top: 56.25%;">
                     <iframe 
                         class="absolute top-0 left-0 w-full h-full"
                         src="https://www.youtube.com/embed/aNeu1ECNpOE?si=D8au59Wecl5e6LOR" 
-                        title="Video de Grape! - Experiencias Únicas en Coctelería"
+                        title="Video de Grape! - Tienda de Bebidas"
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen
@@ -346,7 +346,7 @@
                     ></iframe>
                 </div>
             </div>
-            <h3 class="text-2xl font-bold text-center mb-6 text-grape-800">Reels de Instagram Grape!</h3>
+            <h3 class="text-2xl font-bold text-center mb-6 text-grape-800">Nuestros Reels de Instagram</h3>
             <div class="relative max-w-4xl mx-auto">
                 <div class="overflow-x-auto">
                     <div id="reelsSlider" class="flex space-x-4 pb-4">
@@ -360,39 +360,39 @@
     <!-- Tienda -->
     <section id="tienda" class="py-20 bg-grape-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-grape-800">Tienda Grape!</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-grape-800">Nuestra Tienda</h2>
             <div class="relative">
                 <div class="overflow-x-auto">
                     <div id="productSlider" class="flex space-x-4 pb-4">
                         <div class="product-card flex-shrink-0 w-64">
-                            <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-500 hover:scale-105">
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
                                 <div class="relative h-48">
                                     <img src="/gin.jpg" alt="Gin Premium Grape!" class="w-full h-full object-cover" loading="lazy">
                                 </div>
                                 <div class="p-4">
-                                    <h3 class="text-lg font-semibold mb-2 text-grape-800">Gin Premium Grape!</h3>
+                                    <h3 class="text-lg font-semibold mb-2 text-grape-800">Gin Premium</h3>
                                     <p class="text-grape-600 font-bold">$XX.XX</p>
                                 </div>
                             </div>
                         </div>
                         <div class="product-card flex-shrink-0 w-64">
-                            <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-500 hover:scale-105">
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
                                 <div class="relative h-48">
                                     <img src="/vodka.jpg" alt="Vodka Artesanal Grape!" class="w-full h-full object-cover" loading="lazy">
                                 </div>
                                 <div class="p-4">
-                                    <h3 class="text-lg font-semibold mb-2 text-grape-800">Vodka Artesanal Grape!</h3>
+                                    <h3 class="text-lg font-semibold mb-2 text-grape-800">Vodka Artesanal</h3>
                                     <p class="text-grape-600 font-bold">$XX.XX</p>
                                 </div>
                             </div>
                         </div>
                         <div class="product-card flex-shrink-0 w-64">
-                            <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-500 hover:scale-105">
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
                                 <div class="relative h-48">
                                     <img src="/ron.jpg" alt="Ron Especial Grape!" class="w-full h-full object-cover" loading="lazy">
                                 </div>
                                 <div class="p-4">
-                                    <h3 class="text-lg font-semibold mb-2 text-grape-800">Ron Especial Grape!</h3>
+                                    <h3 class="text-lg font-semibold mb-2 text-grape-800">Ron Especial</h3>
                                     <p class="text-grape-600 font-bold">$XX.XX</p>
                                 </div>
                             </div>
@@ -401,8 +401,8 @@
                 </div>
             </div>
             <div class="text-center mt-12">
-                <button class="bg-grape-600 hover:bg-grape-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 shadow-lg">
-                    Ver Todos los Productos Grape!
+                <button class="bg-grape-600 hover:bg-grape-700 text-white font-bold py-2 px-4 rounded-full transition duration-300">
+                    Ver Todos los Productos
                 </button>
             </div>
         </div>
@@ -411,22 +411,22 @@
     <!-- Sección de Marcas -->
     <section id="marcas" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-grape-800">Nuestras Marcas Asociadas</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-grape-800">Nuestras Marcas</h2>
             <div class="brand-slider">
                 <div class="brand-slide">
-                    <img src="/brand1.png" alt="Marca Asociada 1" class="h-16 w-auto mx-auto" loading="lazy">
+                    <img src="/brand1.png" alt="Marca 1" class="h-16 w-auto mx-auto" loading="lazy">
                 </div>
                 <div class="brand-slide">
-                    <img src="/brand2.png" alt="Marca Asociada 2" class="h-16 w-auto mx-auto" loading="lazy">
+                    <img src="/brand2.png" alt="Marca 2" class="h-16 w-auto mx-auto" loading="lazy">
                 </div>
                 <div class="brand-slide">
-                    <img src="/brand3.png" alt="Marca Asociada 3" class="h-16 w-auto mx-auto" loading="lazy">
+                    <img src="/brand3.png" alt="Marca 3" class="h-16 w-auto mx-auto" loading="lazy">
                 </div>
                 <div class="brand-slide">
-                    <img src="/brand4.png" alt="Marca Asociada 4" class="h-16 w-auto mx-auto" loading="lazy">
+                    <img src="/brand4.png" alt="Marca 4" class="h-16 w-auto mx-auto" loading="lazy">
                 </div>
                 <div class="brand-slide">
-                    <img src="/brand5.png" alt="Marca Asociada 5" class="h-16 w-auto mx-auto" loading="lazy">
+                    <img src="/brand5.png" alt="Marca 5" class="h-16 w-auto mx-auto" loading="lazy">
                 </div>
             </div>
         </div>
