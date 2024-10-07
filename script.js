@@ -1,152 +1,103 @@
-// Navbar scroll effect
-const navbar = document.getElementById('navbar');
-let lastScrollTop = 0;
+document.addEventListener('DOMContentLoaded', function() {
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            navbar.classList.add('bg-white', 'shadow-md');
+            navbar.classList.remove('bg-transparent');
+        } else {
+            navbar.classList.remove('bg-white', 'shadow-md');
+            navbar.classList.add('bg-transparent');
+        }
+    });
 
-window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (scrollTop > lastScrollTop) {
-        navbar.style.transform = 'translateY(-100%)';
-    } else {
-        navbar.style.transform = 'translateY(0)';
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Hero slider
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    let currentSlide = 0;
+    function showSlide(index) {
+        heroSlides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
     }
-    
-    if (scrollTop > 50) {
-        navbar.classList.add('bg-white', 'shadow-md');
-        navbar.classList.remove('bg-transparent');
-        // No cambiamos el color del texto aquí para mantenerlo visible
-    } else {
-        navbar.classList.remove('bg-white', 'shadow-md');
-        navbar.classList.add('bg-transparent');
-        // No cambiamos el color del texto aquí para mantenerlo visible
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % heroSlides.length;
+        showSl
+ide(currentSlide);
     }
-    
-    lastScrollTop = scrollTop;
-});
+    setInterval(nextSlide, 5000);
 
-// Mobile menu toggle
-const menuToggle = document.getElementById('menuToggle');
-const mobileMenu = document.getElementById('mobileMenu');
+    // Product slider
+    const productSlider = document.getElementById('productSlider');
+    const prevProduct = document.getElementById('prevProduct');
+    const nextProduct = document.getElementById('nextProduct');
+    let productPosition = 0;
+    const productCards = document.querySelectorAll('.product-card');
+    const productCardWidth = productCards[0].offsetWidth;
+    const maxPosition = (productCards.length - 3) * productCardWidth;
 
-menuToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-});
+    function updateProductSlider() {
+        productSlider.style.transform = `translateX(-${productPosition}px)`;
+    }
 
-// Hero slider
-const slides = document.querySelectorAll('.hero-slide');
-let currentSlide = 0;
+    prevProduct.addEventListener('click', () => {
+        productPosition = Math.max(productPosition - productCardWidth, 0);
+        updateProductSlider();
+    });
 
-function showSlide(index) {
-    slides[currentSlide].classList.remove('active');
-    slides[index].classList.add('active');
-    currentSlide = index;
-}
+    nextProduct.addEventListener('click', () => {
+        productPosition = Math.min(productPosition + productCardWidth, maxPosition);
+        updateProductSlider();
+    });
 
-function nextSlide() {
-    let next = (currentSlide + 1) % slides.length;
-    showSlide(next);
-}
+    // Reels slider
+    const reelsSlider = document.getElementById('reelsSlider');
+    const prevReel = document.getElementById('prevReel');
+    const nextReel = document.getElementById('nextReel');
+    let reelPosition = 0;
+    const reelCards = [
+        '<iframe src="https://www.instagram.com/reel/C3-Ue-Gu-Hy/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>',
+        '<iframe src="https://www.instagram.com/reel/C3-UcXOOXXe/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>',
+        '<iframe src="https://www.instagram.com/reel/C3-UaXwOXXc/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>',
+        '<iframe src="https://www.instagram.com/reel/C3-UYjAOXXa/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>'
+    ];
 
-setInterval(nextSlide, 5000);
-
-// Product slider
-const productSlider = document.getElementById('productSlider');
-const prevButton = document.getElementById('prevProduct');
-const nextButton = document.getElementById('nextProduct');
-let slidePosition = 0;
-
-prevButton.addEventListener('click', () => {
-    slidePosition = Math.max(slidePosition - 1, 0);
-    updateSliderPosition();
-});
-
-nextButton.addEventListener('click', () => {
-    slidePosition = Math.min(slidePosition + 1, productSlider.children.length - 1);
-    updateSliderPosition();
-});
-
-function updateSliderPosition() {
-    const slideWidth = productSlider.clientWidth;
-    productSlider.style.transform = `translateX(-${slidePosition * slideWidth}px)`;
-}
-
-// Reels slider
-const reelsSlider = document.getElementById('reelsSlider');
-const prevReelButton = document.getElementById('prevReel');
-const nextReelButton = document.getElementById('nextReel');
-let reelsSlidePosition = 0;
-
-const reels = [
-    { id: 1, url: "https://www.instagram.com/reel/ABC123/embed" },
-    { id: 2, url: "https://www.instagram.com/reel/DEF456/embed" },
-    { id: 3, url: "https://www.instagram.com/reel/GHI789/embed" },
-    { id: 4, url: "https://www.instagram.com/reel/JKL012/embed" },
-    { id: 5, url: "https://www.instagram.com/reel/MNO345/embed" },
-];
-
-// Función para crear y agregar los Reels al slider
-function populateReelsSlider() {
-    reels.forEach(reel => {
+    // Insertar los Reels en el slider
+    reelCards.forEach(reel => {
         const reelCard = document.createElement('div');
         reelCard.className = 'reel-card';
-        reelCard.innerHTML = `
-            <iframe
-                src="${reel.url}"
-                allowfullscreen
-            ></iframe>
-        `;
+        reelCard.innerHTML = reel;
         reelsSlider.appendChild(reelCard);
     });
-}
 
-populateReelsSlider();
+    function updateReelsSlider() {
+        reelsSlider.style.transform = `translateX(-${reelPosition}%)`;
+    }
 
-prevReelButton.addEventListener('click', () => {
-    reelsSlidePosition = Math.max(reelsSlidePosition - 1, 0);
-    updateReelsSliderPosition();
-});
-
-nextReelButton.addEventListener('click', () => {
-    const maxSlides = window.innerWidth < 640 ? reels.length - 1 : Math.ceil(reels.length / 2) - 1;
-    reelsSlidePosition = Math.min(reelsSlidePosition + 1, maxSlides);
-    updateReelsSliderPosition();
-});
-
-function updateReelsSliderPosition() {
-    const slidePercentage = window.innerWidth < 640 ? 100 : 50;
-    reelsSlider.style.transform = `translateX(-${reelsSlidePosition * slidePercentage}%)`;
-}
-
-// Update sliders on window resize
-window.addEventListener('resize', () => {
-    updateSliderPosition(); // For product slider
-    updateReelsSliderPosition(); // For reels slider
-});
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+    prevReel.addEventListener('click', () => {
+        reelPosition = Math.max(reelPosition - 50, 0);
+        updateReelsSlider();
     });
-});
 
-// Brand slider
-// No additional JavaScript needed for the brand slider as it's handled by CSS animations
+    nextReel.addEventListener('click', () => {
+        reelPosition = Math.min(reelPosition + 50, (reelCards.length - 2) * 50);
+        updateReelsSlider();
+    });
 
-// Form submission (you'll need to implement the actual form submission logic)
-const contactForm = document.querySelector('#contacto form');
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    // Add your form submission logic here
-    console.log('Form submitted');
-});
-
-// Reservation button functionality
-const reserveButton = document.getElementById('reserveButton');
-reserveButton.addEventListener('click', () => {
-    // Add your reservation logic here
-    console.log('Reservation button clicked');
+    // Reserve Now button functionality
+    const reserveButton = document.getElementById('reserveButton');
+    reserveButton.addEventListener('click', function() {
+        alert('¡Gracias por tu interés! Pronto te contactaremos para confirmar tu reserva.');
+        // Aquí puedes agregar la lógica para abrir un modal o redirigir a una página de reserva
+    });
 });
