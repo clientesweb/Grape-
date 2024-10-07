@@ -14,17 +14,11 @@ window.addEventListener('scroll', () => {
     if (scrollTop > 50) {
         navbar.classList.add('bg-white', 'shadow-md');
         navbar.classList.remove('bg-transparent');
-        document.querySelectorAll('#navbar a').forEach(link => {
-            link.classList.remove('text-white');
-            link.classList.add('text-primary-800');
-        });
+        // No cambiamos el color del texto aquí para mantenerlo visible
     } else {
         navbar.classList.remove('bg-white', 'shadow-md');
         navbar.classList.add('bg-transparent');
-        document.querySelectorAll('#navbar a').forEach(link => {
-            link.classList.add('text-white');
-            link.classList.remove('text-primary-800');
-        });
+        // No cambiamos el color del texto aquí para mantenerlo visible
     }
     
     lastScrollTop = scrollTop;
@@ -76,8 +70,60 @@ function updateSliderPosition() {
     productSlider.style.transform = `translateX(-${slidePosition * slideWidth}px)`;
 }
 
-// Update slider on window resize
-window.addEventListener('resize', updateSliderPosition);
+// Reels slider
+const reelsSlider = document.getElementById('reelsSlider');
+const prevReelButton = document.getElementById('prevReel');
+const nextReelButton = document.getElementById('nextReel');
+let reelsSlidePosition = 0;
+
+const reels = [
+    { id: 1, url: "https://www.instagram.com/reel/ABC123/embed" },
+    { id: 2, url: "https://www.instagram.com/reel/DEF456/embed" },
+    { id: 3, url: "https://www.instagram.com/reel/GHI789/embed" },
+    { id: 4, url: "https://www.instagram.com/reel/JKL012/embed" },
+    { id: 5, url: "https://www.instagram.com/reel/MNO345/embed" },
+];
+
+// Función para crear y agregar los Reels al slider
+function populateReelsSlider() {
+    reels.forEach(reel => {
+        const reelCard = document.createElement('div');
+        reelCard.className = 'reel-card';
+        reelCard.innerHTML = `
+            <div class="aspect-w-9 aspect-h-16">
+                <iframe
+                    src="${reel.url}"
+                    class="w-full h-full rounded-lg shadow-md"
+                    allowfullscreen
+                ></iframe>
+            </div>
+        `;
+        reelsSlider.appendChild(reelCard);
+    });
+}
+
+populateReelsSlider();
+
+prevReelButton.addEventListener('click', () => {
+    reelsSlidePosition = Math.max(reelsSlidePosition - 1, 0);
+    updateReelsSliderPosition();
+});
+
+nextReelButton.addEventListener('click', () => {
+    reelsSlidePosition = Math.min(reelsSlidePosition + 1, Math.ceil(reels.length / 2) - 1);
+    updateReelsSliderPosition();
+});
+
+function updateReelsSliderPosition() {
+    const slideWidth = reelsSlider.clientWidth;
+    reelsSlider.style.transform = `translateX(-${reelsSlidePosition * slideWidth}px)`;
+}
+
+// Update sliders on window resize
+window.addEventListener('resize', () => {
+    updateSliderPosition(); // For product slider
+    updateReelsSliderPosition(); // For reels slider
+});
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -91,9 +137,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Brand slider
 // No additional JavaScript needed for the brand slider as it's handled by CSS animations
-
-// Initialize AOS (Animate on Scroll) if you decide to use it
-// AOS.init();
 
 // Form submission (you'll need to implement the actual form submission logic)
 const contactForm = document.querySelector('#contacto form');
