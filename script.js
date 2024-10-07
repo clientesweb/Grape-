@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Navbar scroll effect
+    // Navbar scroll effect (sin cambios)
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
@@ -11,14 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Mobile menu toggle
+    // Mobile menu toggle (sin cambios)
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
     menuToggle.addEventListener('click', function() {
         mobileMenu.classList.toggle('hidden');
     });
 
-    // Hero slider
+    // Hero slider (sin cambios)
     const heroSlides = document.querySelectorAll('.hero-slide');
     let currentSlide = 0;
     function showSlide(index) {
@@ -32,39 +32,50 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     function nextSlide() {
         currentSlide = (currentSlide + 1) % heroSlides.length;
-        showSl
-ide(currentSlide);
+        showSlide(currentSlide);
     }
     setInterval(nextSlide, 5000);
 
-    // Product slider
+    // Product slider (modificado para scroll horizontal)
     const productSlider = document.getElementById('productSlider');
     const prevProduct = document.getElementById('prevProduct');
     const nextProduct = document.getElementById('nextProduct');
-    let productPosition = 0;
-    const productCards = document.querySelectorAll('.product-card');
-    const productCardWidth = productCards[0].offsetWidth;
-    const maxPosition = (productCards.length - 3) * productCardWidth;
 
-    function updateProductSlider() {
-        productSlider.style.transform = `translateX(-${productPosition}px)`;
+    // Configurar el scroll horizontal
+    productSlider.style.overflowX = 'scroll';
+    productSlider.style.scrollBehavior = 'smooth';
+    productSlider.style.display = 'flex';
+    productSlider.style.scrollSnapType = 'x mandatory';
+
+    const productCards = document.querySelectorAll('.product-card');
+    productCards.forEach(card => {
+        card.style.flex = '0 0 auto';
+        card.style.scrollSnapAlign = 'start';
+    });
+
+    // Función para desplazamiento suave
+    function scrollProducts(direction) {
+        const scrollAmount = productSlider.offsetWidth;
+        productSlider.scrollBy({
+            left: direction * scrollAmount,
+            behavior: 'smooth'
+        });
     }
 
-    prevProduct.addEventListener('click', () => {
-        productPosition = Math.max(productPosition - productCardWidth, 0);
-        updateProductSlider();
-    });
+    prevProduct.addEventListener('click', () => scrollProducts(-1));
+    nextProduct.addEventListener('click', () => scrollProducts(1));
 
-    nextProduct.addEventListener('click', () => {
-        productPosition = Math.min(productPosition + productCardWidth, maxPosition);
-        updateProductSlider();
-    });
-
-    // Reels slider
+    // Reels slider (modificado para scroll horizontal)
     const reelsSlider = document.getElementById('reelsSlider');
     const prevReel = document.getElementById('prevReel');
     const nextReel = document.getElementById('nextReel');
-    let reelPosition = 0;
+
+    // Configurar el scroll horizontal para reels
+    reelsSlider.style.overflowX = 'scroll';
+    reelsSlider.style.scrollBehavior = 'smooth';
+    reelsSlider.style.display = 'flex';
+    reelsSlider.style.scrollSnapType = 'x mandatory';
+
     const reelCards = [
         '<iframe src="https://www.instagram.com/reel/C3-Ue-Gu-Hy/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>',
         '<iframe src="https://www.instagram.com/reel/C3-UcXOOXXe/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>',
@@ -76,25 +87,25 @@ ide(currentSlide);
     reelCards.forEach(reel => {
         const reelCard = document.createElement('div');
         reelCard.className = 'reel-card';
+        reelCard.style.flex = '0 0 auto';
+        reelCard.style.scrollSnapAlign = 'start';
         reelCard.innerHTML = reel;
         reelsSlider.appendChild(reelCard);
     });
 
-    function updateReelsSlider() {
-        reelsSlider.style.transform = `translateX(-${reelPosition}%)`;
+    // Función para desplazamiento suave de reels
+    function scrollReels(direction) {
+        const scrollAmount = reelsSlider.offsetWidth;
+        reelsSlider.scrollBy({
+            left: direction * scrollAmount,
+            behavior: 'smooth'
+        });
     }
 
-    prevReel.addEventListener('click', () => {
-        reelPosition = Math.max(reelPosition - 50, 0);
-        updateReelsSlider();
-    });
+    prevReel.addEventListener('click', () => scrollReels(-1));
+    nextReel.addEventListener('click', () => scrollReels(1));
 
-    nextReel.addEventListener('click', () => {
-        reelPosition = Math.min(reelPosition + 50, (reelCards.length - 2) * 50);
-        updateReelsSlider();
-    });
-
-    // Reserve Now button functionality
+    // Reserve Now button functionality (sin cambios)
     const reserveButton = document.getElementById('reserveButton');
     reserveButton.addEventListener('click', function() {
         alert('¡Gracias por tu interés! Pronto te contactaremos para confirmar tu reserva.');
