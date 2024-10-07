@@ -36,30 +36,36 @@ document.addEventListener('DOMContentLoaded', function() {
         showSlide(nextSlide);
     }, 5000);
 
-    // Product slider
+    // Product slider with scroll
     const productSlider = document.getElementById('productSlider');
-    const prevProduct = document.getElementById('prevProduct');
-    const nextProduct = document.getElementById('nextProduct');
-    let productPosition = 0;
-    const productCards = document.querySelectorAll('.product-card');
-    const productCardWidth = productCards[0].offsetWidth;
-    const productMaxPosition = (productCards.length - 1) * productCardWidth;
+    let isScrollingProduct = false;
+    let startXProduct;
+    let scrollLeftProduct;
 
-    prevProduct.addEventListener('click', () => {
-        productPosition = Math.max(productPosition - productCardWidth, 0);
-        productSlider.style.transform = `translateX(-${productPosition}px)`;
+    productSlider.addEventListener('mousedown', (e) => {
+        isScrollingProduct = true;
+        startXProduct = e.pageX - productSlider.offsetLeft;
+        scrollLeftProduct = productSlider.scrollLeft;
     });
 
-    nextProduct.addEventListener('click', () => {
-        productPosition = Math.min(productPosition + productCardWidth, productMaxPosition);
-        productSlider.style.transform = `translateX(-${productPosition}px)`;
+    productSlider.addEventListener('mouseleave', () => {
+        isScrollingProduct = false;
     });
 
-    // Reels slider
+    productSlider.addEventListener('mouseup', () => {
+        isScrollingProduct = false;
+    });
+
+    productSlider.addEventListener('mousemove', (e) => {
+        if (!isScrollingProduct) return;
+        e.preventDefault();
+        const x = e.pageX - productSlider.offsetLeft;
+        const walk = (x - startXProduct) * 3;
+        productSlider.scrollLeft = scrollLeftProduct - walk;
+    });
+
+    // Reels slider with scroll
     const reelsSlider = document.getElementById('reelsSlider');
-    const prevReel = document.getElementById('prevReel');
-    const nextReel = document.getElementById('nextReel');
-    let reelPosition = 0;
     const reels = [
         'https://www.instagram.com/reel/CzNIQTCOAHM/embed',
         'https://www.instagram.com/reel/CzKXVPRuEEQ/embed',
@@ -84,18 +90,30 @@ document.addEventListener('DOMContentLoaded', function() {
         reelsSlider.appendChild(createReelCard(reel));
     });
 
-    const reelCards = document.querySelectorAll('.reel-card');
-    const reelCardWidth = reelCards[0].offsetWidth;
-    const reelMaxPosition = (reelCards.length - 1) * reelCardWidth;
+    let isScrollingReel = false;
+    let startXReel;
+    let scrollLeftReel;
 
-    prevReel.addEventListener('click', () => {
-        reelPosition = Math.max(reelPosition - reelCardWidth, 0);
-        reelsSlider.style.transform = `translateX(-${reelPosition}px)`;
+    reelsSlider.addEventListener('mousedown', (e) => {
+        isScrollingReel = true;
+        startXReel = e.pageX - reelsSlider.offsetLeft;
+        scrollLeftReel = reelsSlider.scrollLeft;
     });
 
-    nextReel.addEventListener('click', () => {
-        reelPosition = Math.min(reelPosition + reelCardWidth, reelMaxPosition);
-        reelsSlider.style.transform = `translateX(-${reelPosition}px)`;
+    reelsSlider.addEventListener('mouseleave', () => {
+        isScrollingReel = false;
+    });
+
+    reelsSlider.addEventListener('mouseup', () => {
+        isScrollingReel = false;
+    });
+
+    reelsSlider.addEventListener('mousemove', (e) => {
+        if (!isScrollingReel) return;
+        e.preventDefault();
+        const x = e.pageX - reelsSlider.offsetLeft;
+        const walk = (x - startXReel) * 3;
+        reelsSlider.scrollLeft = scrollLeftReel - walk;
     });
 
     // Smooth scrolling for anchor links
