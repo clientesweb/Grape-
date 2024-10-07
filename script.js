@@ -134,8 +134,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const whatsappURL = `https://wa.me/1234567890?text=${message}`;
         window.open(whatsappURL, '_blank');
     });
-});
-
 
     // Manejo del formulario de contacto con Formspree
     const contactForm = document.getElementById('contactForm');
@@ -187,12 +185,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Cargar el script de Google Maps
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap`;
-    script.async = true;
-    script.defer = true;
-    document.head.appendChild(script);
+    function loadGoogleMapsScript() {
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap`;
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+    }
 
     // Hacer la función initMap global para que Google Maps pueda llamarla
     window.initMap = initMap;
+
+    // Cargar el script de Google Maps
+    loadGoogleMapsScript();
 });
