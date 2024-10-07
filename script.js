@@ -169,25 +169,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Inicialización del mapa
-    function initMap() {
-        const mapElement = document.getElementById('map');
-        const lat = 40.416775;
-        const lng = -3.703790;
-        const mapUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${lng-0.01}%2C${lat-0.01}%2C${lng+0.01}%2C${lat+0.01}&layer=mapnik&marker=${lat}%2C${lng}`;
-        
-        const iframe = document.createElement('iframe');
-        iframe.width = '100%';
-        iframe.height = '100%';
-        iframe.frameBorder = '0';
-        iframe.scrolling = 'no';
-        iframe.marginHeight = '0';
-        iframe.marginWidth = '0';
-        iframe.src = mapUrl;
-        
-        mapElement.appendChild(iframe);
-    }
+    // ... (código anterior sin cambios)
 
-    // Inicializar el mapa
-    initMap();
-});
+// Inicialización del mapa
+function initMap() {
+    const mapElement = document.getElementById('map');
+    const lat = -31.3734352; // Latitud de Grape - Barras moviles, Córdoba
+    const lng = -64.2291763; // Longitud de Grape - Barras moviles, Córdoba
+    const mapUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${lng-0.005}%2C${lat-0.005}%2C${lng+0.005}%2C${lat+0.005}&layer=mapnik&marker=${lat}%2C${lng}`;
+    
+    const iframe = document.createElement('iframe');
+    iframe.width = '100%';
+    iframe.height = '100%';
+    iframe.frameBorder = '0';
+    iframe.scrolling = 'no';
+    iframe.marginHeight = '0';
+    iframe.marginWidth = '0';
+    iframe.src = mapUrl;
+    
+    mapElement.appendChild(iframe);
+}
+
+// Inicializar el mapa
+initMap();
+
+// ... (código posterior sin cambios)
