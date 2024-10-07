@@ -77,13 +77,31 @@
             }
         }
         .reels-slider {
-            display: flex;
-            transition: transform 0.3s ease-in-out;
-        }
+        display: flex;
+        transition: transform 0.3s ease-in-out;
+    }
+    .reel-card {
+        flex: 0 0 50%;
+        padding: 0 8px;
+        height: 0;
+        padding-bottom: 88.89%; /* Proporción 9:16 para dos Reels por vista */
+        position: relative;
+    }
+    .reel-card iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    @media (max-width: 640px) {
         .reel-card {
-            flex: 0 0 50%;
-            padding: 0 8px;
+            flex: 0 0 100%;
+            padding-bottom: 177.78%; /* Proporción 9:16 para un Reel por vista en móviles */
         }
+    }
+</style>
     </style>
 </head>
 <body class="min-h-screen bg-white">
@@ -258,40 +276,40 @@
 
     <!-- Video de YouTube y Reels de Instagram -->
     <section id="video" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary-800">Nuestro Trabajo en Acción</h2>
-            <div class="max-w-3xl mx-auto mb-12">
-                <div class="relative overflow-hidden rounded-lg shadow-md" style="padding-top: 56.25%;">
-                    <iframe 
-                        class="absolute top-0 left-0 w-full h-full"
-                        src="https://www.youtube.com/embed/aNeu1ECNpOE?si=D8au59Wecl5e6LOR" 
-                        title="Video de Grape! - Tienda de Bebidas"
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen
-                    ></iframe>
-                </div>
-            </div>
-            <h3 class="text-2xl font-bold text-center mb-6 text-primary-800">Nuestros Reels de Instagram</h3>
-            <div class="relative max-w-4xl mx-auto">
-                <div class="overflow-hidden">
-                    <div id="reelsSlider" class="reels-slider">
-                        <!-- Los Reels se insertarán aquí dinámicamente con JavaScript -->
-                    </div>
-                </div>
-                <button id="prevReel" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-full bg-primary-600 text-white p-2 rounded-full">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-                <button id="nextReel" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-full bg-primary-600 text-white p-2 rounded-full">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary-800">Nuestro Trabajo en Acción</h2>
+        <div class="max-w-3xl mx-auto mb-12">
+            <div class="relative overflow-hidden rounded-lg shadow-md" style="padding-top: 56.25%;">
+                <iframe 
+                    class="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/aNeu1ECNpOE?si=D8au59Wecl5e6LOR" 
+                    title="Video de Grape! - Tienda de Bebidas"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                ></iframe>
             </div>
         </div>
-    </section>
+        <h3 class="text-2xl font-bold text-center mb-6 text-primary-800">Nuestros Reels de Instagram</h3>
+        <div class="relative max-w-4xl mx-auto">
+            <div class="overflow-hidden">
+                <div id="reelsSlider" class="flex transition-transform duration-300 ease-in-out">
+                    <!-- Los Reels se insertarán aquí dinámicamente con JavaScript -->
+                </div>
+            </div>
+            <button id="prevReel" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-full bg-primary-600 text-white p-2 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button id="nextReel" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-full bg-primary-600 text-white p-2 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</section>
 
     <!-- Tienda -->
     <section id="tienda" class="py-20 bg-gray-100">
