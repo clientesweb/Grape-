@@ -29,6 +29,12 @@
         }
     </script>
     <style>
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
         .hero-slider {
             position: relative;
             height: 100vh;
@@ -46,12 +52,17 @@
         .hero-slide.active {
             opacity: 1;
         }
-        .product-slider {
+        .product-slider, .reels-slider {
             display: flex;
             transition: transform 0.3s ease-in-out;
+            width: 100%;
+            overflow-x: hidden;
         }
-        .product-card {
+        .product-card, .reel-card {
             flex: 0 0 100%;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
         }
         @media (min-width: 768px) {
             .product-card {
@@ -76,10 +87,6 @@
                 transform: translateX(-100%);
             }
         }
-        .reels-slider {
-            display: flex;
-            transition: transform 0.3s ease-in-out;
-        }
         .reel-card {
             flex: 0 0 50%;
             padding: 0 8px;
@@ -101,7 +108,9 @@
                 padding-bottom: 177.78%; /* Proporción 9:16 para un Reel por vista en móviles */
             }
         }
-        body {
+        section {
+            width: 100%;
+            max-width: 100vw;
             overflow-x: hidden;
         }
         .container {
@@ -109,6 +118,11 @@
             max-width: 100%;
             padding-left: 1rem;
             padding-right: 1rem;
+            box-sizing: border-box;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
         }
         @media (min-width: 640px) {
             .container {
