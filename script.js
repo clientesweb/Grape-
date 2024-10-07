@@ -135,3 +135,64 @@ document.addEventListener('DOMContentLoaded', function() {
         window.open(whatsappURL, '_blank');
     });
 });
+
+
+    // Manejo del formulario de contacto con Formspree
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        formStatus.textContent = 'Enviando mensaje...';
+        formStatus.classList.remove('hidden', 'bg-green-100', 'text-green-700', 'bg-red-100', 'text-red-700');
+        formStatus.classList.add('bg-blue-100', 'text-blue-700');
+
+        fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Error en el envío del formulario');
+        }).then(data => {
+            formStatus.textContent = '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.';
+            formStatus.classList.remove('bg-blue-100', 'text-blue-700');
+            formStatus.classList.add('bg-green-100', 'text-green-700');
+            contactForm.reset();
+        }).catch(error => {
+            formStatus.textContent = 'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.';
+            formStatus.classList.remove('bg-blue-100', 'text-blue-700');
+            formStatus.classList.add('bg-red-100', 'text-red-700');
+        });
+    });
+
+    // Inicialización del mapa
+    function initMap() {
+        const mapOptions = {
+            center: { lat: 40.416775, lng: -3.703790 }, // Coordenadas de Madrid (cámbialas por la ubicación de tu negocio)
+            zoom: 15
+        };
+        const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        
+        const marker = new google.maps.Marker({
+            position: mapOptions.center,
+            map: map,
+            title: 'Grape!'
+        });
+    }
+
+    // Cargar el script de Google Maps
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap`;
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+
+    // Hacer la función initMap global para que Google Maps pueda llamarla
+    window.initMap = initMap;
+});
