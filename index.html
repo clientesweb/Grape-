@@ -371,7 +371,7 @@
     </section>
 
     <!-- Video de YouTube y Reels de Instagram -->
-    <section id="video" class="py-20 bg-gray-100">
+<section id="video" class="py-20 bg-gray-100">
     <div class="container mx-auto px-4">
         <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary-800">Nuestro Trabajo en Acción</h2>
         <div class="max-w-3xl mx-auto mb-12">
@@ -388,85 +388,65 @@
         </div>
         <h3 class="text-2xl font-bold text-center mb-6 text-primary-800">Nuestros Reels de Instagram</h3>
         <div class="relative max-w-4xl mx-auto">
-            <div class="overflow-hidden">
-                <div id="reelsSlider" class="flex transition-transform duration-300 ease-in-out">
+            <div class="overflow-x-auto">
+                <div id="reelsSlider" class="flex space-x-4 pb-4">
                     <!-- Los Reels se insertarán aquí dinámicamente con JavaScript -->
                 </div>
             </div>
-            <button id="prevReel" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-full bg-primary-600 text-white p-2 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
-            </button>
-            <button id="nextReel" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-full bg-primary-600 text-white p-2 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-            </button>
         </div>
     </div>
 </section>
 
-    <!-- Tienda -->
-    <section id="tienda" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary-800">Nuestra Tienda</h2>
-            <div class="relative">
-                <div class="overflow-hidden">
-                    <div id="productSlider" class="product-slider">
-                        <div class="product-card px-4">
-                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                                <div class="relative h-48">
-                                    <img src="/gin.jpg" alt="Gin Premium" class="w-full h-full object-cover">
-                                </div>
-                                <div class="p-4">
-                                    <h3 class="text-lg font-semibold mb-2 text-primary-800">Gin Premium</h3>
-                                    <p class="text-primary-600 font-bold">$XX.XX</p>
-                                </div>
+<!-- Tienda -->
+<section id="tienda" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary-800">Nuestra Tienda</h2>
+        <div class="relative">
+            <div class="overflow-x-auto">
+                <div id="productSlider" class="flex space-x-4 pb-4">
+                    <div class="product-card flex-shrink-0 w-64">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="relative h-48">
+                                <img src="/gin.jpg" alt="Gin Premium" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-lg font-semibold mb-2 text-primary-800">Gin Premium</h3>
+                                <p class="text-primary-600 font-bold">$XX.XX</p>
                             </div>
                         </div>
-                        <div class="product-card px-4">
-                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                                <div class="relative h-48">
-                                    <img src="/vodka.jpg" alt="Vodka Artesanal" class="w-full h-full object-cover">
-                                </div>
-                                <div class="p-4">
-                                    <h3 class="text-lg font-semibold mb-2 text-primary-800">Vodka Artesanal</h3>
-                                    <p class="text-primary-600 font-bold">$XX.XX</p>
-                                </div>
+                    </div>
+                    <div class="product-card flex-shrink-0 w-64">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="relative h-48">
+                                <img src="/vodka.jpg" alt="Vodka Artesanal" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-lg font-semibold mb-2 text-primary-800">Vodka Artesanal</h3>
+                                <p class="text-primary-600 font-bold">$XX.XX</p>
                             </div>
                         </div>
-                        <div class="product-card px-4">
-                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                                <div class="relative h-48">
-                                    <img src="/ron.jpg" alt="Ron Especial" class="w-full h-full object-cover">
-                                </div>
-                                <div class="p-4">
-                                    <h3 class="text-lg font-semibold mb-2 text-primary-800">Ron Especial</h3>
-                                    <p class="text-primary-600 font-bold">$XX.XX</p>
-                                </div>
+                    </div>
+                    <div class="product-card flex-shrink-0 w-64">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="relative h-48">
+                                <img src="/ron.jpg" alt="Ron Especial" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-lg font-semibold mb-2 text-primary-800">Ron Especial</h3>
+                                <p class="text-primary-600 font-bold">$XX.XX</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button id="prevProduct" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-primary-600 text-white p-2 rounded-full">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-                <button id="nextProduct" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-primary-600 text-white p-2 rounded-full">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
-            </div>
-            <div class="text-center mt-12">
-                <button class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded">
-                    Ver Todos los Productos
-                </button>
             </div>
         </div>
-    </section>
+        <div class="text-center mt-12">
+            <button class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded">
+                Ver Todos los Productos
+            </button>
+        </div>
+    </div>
+</section>
 
     <!-- Sección de Marcas -->
     <section i="marcas" class="py-20">
