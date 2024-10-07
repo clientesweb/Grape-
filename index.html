@@ -76,6 +76,14 @@
                 transform: translateX(-100%);
             }
         }
+        .reels-slider {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+        .reel-card {
+            flex: 0 0 50%;
+            padding: 0 8px;
+        }
     </style>
 </head>
 <body class="min-h-screen bg-white">
@@ -86,13 +94,13 @@
                 <img src="logo.png" alt="Barras Móviles" class="max-h-20 w-auto">
             </a>
             <div class="hidden md:flex space-x-6">
-                <a href="#inicio" class="text-white hover:text-primary-200 transition-colors duration-300">Inicio</a>
-                <a href="#servicios" class="text-white hover:text-primary-200 transition-colors duration-300">Servicios</a>
-                <a href="#eventos" class="text-white hover:text-primary-200 transition-colors duration-300">Eventos</a>
-                <a href="#tienda" class="text-white hover:text-primary-200 transition-colors duration-300">Tienda</a>
-                <a href="#contacto" class="text-white hover:text-primary-200 transition-colors duration-300">Contacto</a>
+                <a href="#inicio" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Inicio</a>
+                <a href="#servicios" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Servicios</a>
+                <a href="#eventos" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Eventos</a>
+                <a href="#tienda" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Tienda</a>
+                <a href="#contacto" class="text-primary-800 hover:text-primary-600 transition-colors duration-300">Contacto</a>
             </div>
-            <button id="menuToggle" class="md:hidden text-white border-white p-2 rounded">
+            <button id="menuToggle" class="md:hidden text-primary-800 border-primary-800 p-2 rounded">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
@@ -248,11 +256,11 @@
         </div>
     </section>
 
-    <!-- Video de YouTube -->
+    <!-- Video de YouTube y Reels de Instagram -->
     <section id="video" class="py-20 bg-gray-100">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary-800">Nuestro Trabajo en Acción</h2>
-            <div class="max-w-3xl mx-auto">
+            <div class="max-w-3xl mx-auto mb-12">
                 <div class="relative overflow-hidden rounded-lg shadow-md" style="padding-top: 56.25%;">
                     <iframe 
                         class="absolute top-0 left-0 w-full h-full"
@@ -263,6 +271,24 @@
                         allowfullscreen
                     ></iframe>
                 </div>
+            </div>
+            <h3 class="text-2xl font-bold text-center mb-6 text-primary-800">Nuestros Reels de Instagram</h3>
+            <div class="relative max-w-4xl mx-auto">
+                <div class="overflow-hidden">
+                    <div id="reelsSlider" class="reels-slider">
+                        <!-- Los Reels se insertarán aquí dinámicamente con JavaScript -->
+                    </div>
+                </div>
+                <button id="prevReel" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-full bg-primary-600 text-white p-2 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button id="nextReel" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-full bg-primary-600 text-white p-2 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
             </div>
         </div>
     </section>
@@ -394,7 +420,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
-                        <p class="text-gray-600"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b7ded9d1d8f7d5d6c5c5d6c4dad8c1dedbd2c499d4d8da">[email&#160;protected]</a></p>
+                        <p class="text-gray-600">info@grape.com</p>
                     </div>
                 </div>
             </div>
@@ -446,6 +472,6 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
