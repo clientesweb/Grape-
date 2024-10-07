@@ -90,13 +90,10 @@ function populateReelsSlider() {
         const reelCard = document.createElement('div');
         reelCard.className = 'reel-card';
         reelCard.innerHTML = `
-            <div class="aspect-w-9 aspect-h-16">
-                <iframe
-                    src="${reel.url}"
-                    class="w-full h-full rounded-lg shadow-md"
-                    allowfullscreen
-                ></iframe>
-            </div>
+            <iframe
+                src="${reel.url}"
+                allowfullscreen
+            ></iframe>
         `;
         reelsSlider.appendChild(reelCard);
     });
@@ -110,13 +107,14 @@ prevReelButton.addEventListener('click', () => {
 });
 
 nextReelButton.addEventListener('click', () => {
-    reelsSlidePosition = Math.min(reelsSlidePosition + 1, Math.ceil(reels.length / 2) - 1);
+    const maxSlides = window.innerWidth < 640 ? reels.length - 1 : Math.ceil(reels.length / 2) - 1;
+    reelsSlidePosition = Math.min(reelsSlidePosition + 1, maxSlides);
     updateReelsSliderPosition();
 });
 
 function updateReelsSliderPosition() {
-    const slideWidth = reelsSlider.clientWidth;
-    reelsSlider.style.transform = `translateX(-${reelsSlidePosition * slideWidth}px)`;
+    const slidePercentage = window.innerWidth < 640 ? 100 : 50;
+    reelsSlider.style.transform = `translateX(-${reelsSlidePosition * slidePercentage}%)`;
 }
 
 // Update sliders on window resize
