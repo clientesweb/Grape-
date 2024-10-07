@@ -94,10 +94,10 @@ document.addEventListener('DOMContentLoaded', function() {
         reelsSlider.style.scrollSnapType = 'x mandatory';
 
         const reelCards = [
-            '<iframe src="https://www.instagram.com/reel/C3-Ue-Gu-Hy/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>',
-            '<iframe src="https://www.instagram.com/reel/C3-UcXOOXXe/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>',
-            '<iframe src="https://www.instagram.com/reel/C3-UaXwOXXc/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>',
-            '<iframe src="https://www.instagram.com/reel/C3-UYjAOXXa/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>'
+            '<iframe src="https://www.instagram.com/reel/DAGRQYdR47k/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>',
+            '<iframe src="https://www.instagram.com/reel/C_BEntyx1G7/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>',
+            '<iframe src="https://www.instagram.com/reel/C-siX4sxgCC/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>',
+            '<iframe src="https://www.instagram.com/reel/C_6lYduyaIy/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>'
         ];
 
         reelCards.forEach(reel => {
