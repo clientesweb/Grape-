@@ -171,31 +171,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Inicialización del mapa
     function initMap() {
-        const mapOptions = {
-            center: { lat: 40.416775, lng: -3.703790 }, // Coordenadas de Madrid (cámbialas por la ubicación de tu negocio)
-            zoom: 15
-        };
-        const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        const mapElement = document.getElementById('map');
+        const lat = 40.416775;
+        const lng = -3.703790;
+        const mapUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${lng-0.01}%2C${lat-0.01}%2C${lng+0.01}%2C${lat+0.01}&layer=mapnik&marker=${lat}%2C${lng}`;
         
-        const marker = new google.maps.Marker({
-            position: mapOptions.center,
-            map: map,
-            title: 'Grape!'
-        });
+        const iframe = document.createElement('iframe');
+        iframe.width = '100%';
+        iframe.height = '100%';
+        iframe.frameBorder = '0';
+        iframe.scrolling = 'no';
+        iframe.marginHeight = '0';
+        iframe.marginWidth = '0';
+        iframe.src = mapUrl;
+        
+        mapElement.appendChild(iframe);
     }
 
-    // Cargar el script de Google Maps
-    function loadGoogleMapsScript() {
-        const script = document.createElement('script');
-        script.src = `https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap`;
-        script.async = true;
-        script.defer = true;
-        document.head.appendChild(script);
-    }
-
-    // Hacer la función initMap global para que Google Maps pueda llamarla
-    window.initMap = initMap;
-
-    // Cargar el script de Google Maps
-    loadGoogleMapsScript();
+    // Inicializar el mapa
+    initMap();
 });
