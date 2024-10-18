@@ -1,12 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Preloader
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-        window.addEventListener('load', function() {
-            preloader.style.display = 'none';
-        });
-    }
-
     // Navbar scroll effect
     const navbar = document.getElementById('navbar');
     if (navbar) {
@@ -211,4 +203,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Inicializar el mapa
     initMap();
+
+    // Carrusel de Clientes Felices
+    const happyClientsSlides = document.querySelectorAll('.happy-clients-slide');
+    let currentHappyClientSlide = 0;
+
+    function showNextHappyClientSlide() {
+        happyClientsSlides[currentHappyClientSlide].classList.remove('active');
+        currentHappyClientSlide = (currentHappyClientSlide + 1) % happyClientsSlides.length;
+        happyClientsSlides[currentHappyClientSlide].classList.add('active');
+    }
+
+    // Cambiar slide cada 5 segundos
+    setInterval(showNextHappyClientSlide, 5000);
 });
