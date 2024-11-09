@@ -71,10 +71,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const reelsSlider = document.getElementById('reelsSlider');
     if (reelsSlider) {
         const reels = [
-            'https://www.instagram.com/reel/C_lKTQWRlQj/embed',
-            'https://www.instagram.com/reel/C_BEntyx1G7/embed',
             'https://www.instagram.com/reel/C-siX4sxgCC/embed',
-            'https://www.instagram.com/reel/C4i-MulxuU8/embed'
+            'https://www.instagram.com/reel/DBj8zPxR5TC/embed',
+            'https://www.instagram.com/reel/C_6lYduyaIy/embed',
+            'https://www.instagram.com/reel/C_BEntyx1G7/embed'
         ];
 
         function createReelCard(src) {
